@@ -18,7 +18,7 @@ const Button = styled.button`
   color: ${colors.opacWhite};
   background: transparent;
   border: none;
-  font-size: 2rem;
+  font-size: 3rem;
   width: 2em;
   &:hover,
   &:focus {
@@ -35,9 +35,9 @@ const Button = styled.button`
 `;
 
 const StyledControls = styled.div`
-  position: absolute;
-  right: 3em;
-  bottom: 2.25em;
+  z-index: 1;
+  grid-column-start: 3;
+  grid-row-start: 3;
   display: flex;
   justify-content: center;
 `;
@@ -47,7 +47,7 @@ export default function Controls(props) {
   const dispatch = useCarouselDispatch();
 
   return (
-    <StyledControls>
+    <StyledControls className="">
       {state.isPlaying ? (
         <Button
           onClick={() =>

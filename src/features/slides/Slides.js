@@ -2,10 +2,14 @@ import React from "react";
 import { useCarouselState } from "../../store/";
 
 import styled from "styled-components";
-import colors from "../../common/vars/colors";
-import mixins from "../../common/vars/mixins";
+import {
+  mixins,
+  colors,
+  fonts
+} from "../../common/vars/";
 
 const StyledSlide = styled.li`
+  z-index: -1;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -18,18 +22,23 @@ const StyledSlide = styled.li`
   list-style-type: none;
   &[aria-hidden="true"] {
     opacity: 0;
-    z-index: -1;
+    z-index: -10;
     transition-delay: 200ms;
   }
+  ${mixins.gridMain};
+  
   .slideText {
-    position: absolute;
+    grid-area: 1/ 1;
+    align-self: start;
     ${props =>
-      props.isBottom ? "bottom: 8em;" : null}
+      props.isBottom
+        ? "grid-row-start: 2;"
+        : null}
     background: ${colors.opacWhite};
-    padding: 1.5em 2.5em;
-    display: inline-block;
-    margin: 1.25em;
+    padding: 1.5em 2em;    
+    
     ${mixins.shadow}
+    font-size: ${fonts.fontSize};
     h2 {
       font-size: 2rem;
     }

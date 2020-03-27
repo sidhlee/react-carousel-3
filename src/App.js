@@ -6,7 +6,11 @@ import {
   useCarouselState,
   useCarouselDispatch
 } from "./store/";
-import { SLIDE_DURATION } from "./common/vars/constants";
+
+import {
+  constants,
+  mixins
+} from "./common/vars/";
 
 import Slides from "./features/slides/Slides";
 import SlideNav from "./features/slideNav/SlideNav";
@@ -14,7 +18,12 @@ import Controls from "./features/controls/Controls";
 import ProgressBar from "./features/progressBar/ProgressBar";
 import { actionTypes } from "./store/actions";
 
-const StyledCarousel = styled.section``;
+const StyledCarousel = styled.section`
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  ${mixins.gridMain};
+`;
 
 function Carousel(props) {
   const state = useCarouselState();
@@ -23,7 +32,7 @@ function Carousel(props) {
     if (state.isPlaying) {
       let timeout = setTimeout(() => {
         dispatch({ type: actionTypes.PROGRESS });
-      }, SLIDE_DURATION);
+      }, constants.SLIDE_DURATION);
       return () => clearTimeout(timeout);
     }
   }, [state, dispatch]);

@@ -7,3 +7,7 @@
 - Debugging React App: check spell errors in state and props
   - `state.isPlaing`
   - `props.cliedk`
+
+## Memo
+
+- Design mobile-first on next iteration.

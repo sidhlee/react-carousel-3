@@ -13,7 +13,7 @@ const StyledSlideNavItem = styled.li`
   button {
     border-radius: 50%;
     height: 1rem;
-    margin: 0.5em;
+    margin: 0 1em;
     border: none;
     background: ${colors.lightOpacWhite};
     filter: drop-shadow(
@@ -48,9 +48,13 @@ function SlideNavItem(props) {
 
 // need pos:abs to be seen over abs positioned background (slide url)
 const StyledSlideNav = styled.div`
-  position: absolute;
-  bottom: 2.25em;
-  left: 1.5em;
+  /* position: absolute;
+  bottom: 3em;
+  left: 1.5em; */
+  grid-column: 1;
+  grid-row: 3;
+  justify-self: center;
+  align-self: center;
   display: flex;
   list-style-type: none;
 `;
