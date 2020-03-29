@@ -6,11 +6,7 @@ import {
   useCarouselState,
   useCarouselDispatch
 } from "./store/";
-
-import {
-  constants,
-  mixins
-} from "./common/vars/";
+import { constants, mixins } from "./common/vars/";
 
 import Slides from "./features/slides/Slides";
 import SlideNav from "./features/slideNav/SlideNav";
@@ -42,7 +38,7 @@ function Carousel(props) {
       <Slides />
       <SlideNav />
       <Controls />
-      <ProgressBar />
+      <ProgressBar key={state.currentIndex} />
     </StyledCarousel>
   );
 }

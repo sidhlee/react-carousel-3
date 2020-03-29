@@ -2,11 +2,7 @@ import React from "react";
 import { useCarouselState } from "../../store/";
 
 import styled from "styled-components";
-import {
-  mixins,
-  colors,
-  fonts
-} from "../../common/vars/";
+import { mixins, colors, fonts } from "../../common/vars/";
 
 const StyledSlide = styled.li`
   z-index: -1;
@@ -17,6 +13,7 @@ const StyledSlide = styled.li`
   right: 0;
   background-image: url(${props => props.src});
   background-size: cover;
+  background-color: black;
   background-position: center;
   background-repeat: no-repeat;
   list-style-type: none;
@@ -28,12 +25,11 @@ const StyledSlide = styled.li`
   ${mixins.gridMain};
   
   .slideText {
-    grid-area: 1/ 1;
+    grid-row: 1;
+    grid-column: 1 / span 2;
+    max-width: 20em;
     align-self: start;
-    ${props =>
-      props.isBottom
-        ? "grid-row-start: 2;"
-        : null}
+    ${props => (props.isBottom ? "grid-row-start: 2;" : null)}
     background: ${colors.opacWhite};
     padding: 1.5em 2em;    
     

@@ -4,7 +4,7 @@ export default {
   gridMain: `
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr 13.5em 13.5em;
+  grid-template-rows: 1fr 13.5em  3em 6.75em;
   padding: 4vh 2em 0;
   `
 };
